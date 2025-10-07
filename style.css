@@ -1,0 +1,815 @@
+/* ======================================================= */
+/* --- ESTILOS GLOBAIS E VARIÁVEIS --- */
+/* ======================================================= */
+
+:root {
+    --cor-rosa-principal: #FF69B4;
+    --cor-amarelo-secundario: #FFF56D;
+    --cor-texto-escuro: #555;
+    --cor-texto-claro: #FDF5E6;
+    --cor-vermelho-acento: #BF0404;
+    --cor-dourado-acento: #FFD700;
+    --cor-rosa-claro: #FFB6C1;
+    --cor-marrom-escuro: #532f0d;
+    --cor-branco: #fff;
+}
+
+body {
+    background-image: url('img/img3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Adiciona esta linha para fixar o fundo */
+    background-position: center center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    font-family: "Emilys Candy", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* ======================================================= */
+/* --- COMPONENTES REUTILIZÁVEIS (HEADER, FOOTER, ETC) --- */
+/* ======================================================= */
+
+/* Estilos do Header */
+@keyframes text-fade-in {
+    from { opacity: 0.8; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background-color: var(--cor-rosa-principal);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: text-fade-in 2s ease-in-out infinite alternate;
+}
+
+.header-left .logo {
+    height: 100px;
+    margin-right: -5px;
+}
+
+.title {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--cor-amarelo-secundario);
+    text-shadow: 2px 2px 4px var(--cor-vermelho-acento);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right a {
+    color: var(--cor-amarelo-secundario);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    text-shadow: 0 4px 6px var(--cor-vermelho-acento);
+    display: inline-block;
+}
+
+.header-right a:hover {
+    color: var(--cor-amarelo-secundario);
+    transform: translateY(-5px);
+    text-shadow: 0 0 10px var(--cor-amarelo-secundario), 0 0 20px var(--cor-amarelo-secundario), 0 6px 8px var(--cor-vermelho-acento);
+}
+
+/* Estilos do Botão Voltar ao Topo */
+#scrollToTopBtn {
+    display: none; /* Esconde o botão por padrão */
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 30px; /* Distância do fundo */
+    right: 30px; /* Distância da direita */
+    z-index: 99; /* Garante que o botão fique na frente de outros elementos */
+    border: none;
+    outline: none;
+    background-color: var(--cor-rosa-principal);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 15%;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--cor-dourado-acento);
+}
+
+/* Estilos do Rodapé */
+.rodape {
+    width: 100%;
+    background-color: var(--cor-marrom-escuro);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rodape1 {
+    color: var(--cor-texto-claro);
+}
+
+/* Estilos do Painel Principal (usado em todas as páginas) */
+.contato-painel {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--cor-texto-claro);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: box-shadow 0.5s ease;
+}
+
+.titulopagina1 {
+    font-size: 2.5em;
+    color: var(--cor-rosa-principal);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.subtitulo {
+    font-size: 1.2em;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ======================================================= */
+/* --- ESTILOS DA PÁGINA INICIAL (INDEX.HTML) --- */
+/* ======================================================= */
+
+.carousel-container {
+    max-width: 1260px;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0; /* Altere o padding para 20px em cima/baixo e 0 nas laterais */
+    background-color: var(--cor-branco);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-container:hover {
+    box-shadow: 0 0 45px var(--cor-rosa-principal), 0 0 25px var(--cor-rosa-claro);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.carousel-slide-wrapper {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px; /* Adicione padding interno em cada slide */
+}
+
+.carousel-content {
+    flex: 1;
+    padding-right: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: left;
+    max-width: 55%;
+}
+
+.carousel-content h2 {
+    font-size: 2.5em;
+    color: var(--cor-rosa-principal);
+    margin-bottom: 10px;
+}
+
+.carousel-content p {
+    font-size: 1.1em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.read-more {
+    text-decoration: none;
+    color: var(--cor-dourado-acento);
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.read-more:hover {
+    color: var(--cor-rosa-claro);
+}
+
+.carousel-image {
+    flex: 1;
+    text-align: right;
+    max-width: 40%;
+    margin-right: 15px;
+}
+
+.carousel-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 1.5em; /* Reduzi o tamanho das setas para evitar sobreposição */
+    color: var(--cor-rosa-claro);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    color: var(--cor-rosa-principal);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Estilos dos indicadores do carrossel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: var(--cor-rosa-claro);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--cor-rosa-principal);
+    border: 2px solid var(--cor-amarelo-secundario);
+}
+
+
+.about-us-card {
+    max-width: 1286px;
+    margin: 40px auto;
+    background-color: var(--cor-texto-claro);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+}
+
+.about-us-image-top {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.about-us-image-top img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px var(--cor-texto-escuro);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us-image-top img:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 30px var(--cor-rosa-principal);
+}
+
+.about-us-card h2 {
+    font-size: 2.2em;
+    color: var(--cor-rosa-principal);
+    text-align: center;
+}
+
+.about-us-card p {
+    font-size: 1.1em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ======================================================= */
+/* --- ESTILOS DA PÁGINA DE RECEITAS (GRID) --- */
+/* ======================================================= */
+
+.receitas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.receita-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cor-branco);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.receita-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 45px var(--cor-rosa-principal), 0 0 25px var(--cor-rosa-claro);
+}
+
+.card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 1.5em;
+    color: var(--cor-rosa-principal);
+    margin-bottom: 10px;
+}
+
+.habilidade {
+    font-size: 0.9em;
+    color: var(--cor-dourado-acento);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.habilidade:hover {
+    color: var(--cor-rosa-claro);
+}
+
+.descricao-curta {
+    font-size: 0.95em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.4;
+}
+
+/* ======================================================= */
+/* --- ESTILOS DA PÁGINA DE CONTATO --- */
+/* ======================================================= */
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.animated-crown {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 100px;
+    animation: jump 2s ease-in-out infinite alternate;
+}
+
+.contato-opcoes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.contato-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-rosa-principal);
+    color: var(--cor-texto-claro);
+    padding: 15px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+.contato-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--cor-rosa-principal), 0 0 10px var(--cor-rosa-claro);
+}
+
+.contato-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.contato-texto {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.contato-formulario {
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-color: var(--cor-branco);
+}
+
+.formulario-titulo {
+    font-size: 2em;
+    color: var(--cor-rosa-principal);
+    margin-bottom: 25px;
+}
+
+.contato-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contato-formulario input,
+.contato-formulario textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--cor-rosa-principal);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--cor-texto-escuro);
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.contato-formulario textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-rosa-principal);
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--cor-dourado-acento);
+}
+
+.social-icons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.icon {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* ======================================================= */
+/* --- ESTILOS DA PÁGINA DE RECEITA (INDIVIDUAL) --- */
+/* ======================================================= */
+
+.contato-painel.receita-pagina {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0;
+    background-color: var(--cor-texto-claro);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.receita-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.receita-header h2 {
+    font-size: 2.5em;
+    color: var(--cor-rosa-principal);
+    margin-bottom: 10px; /* Altere para um valor maior */
+}
+
+.receita-stats {
+    font-size: 1.1em;
+    color: var(--cor-texto-escuro);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.receita-stats i {
+    color: var(--cor-rosa-principal);
+    margin-right: 5px;
+}
+
+.receita-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.receita-banner img:hover{
+    box-shadow: 0 0 45px var(--cor-rosa-principal), 0 0 25px var(--cor-rosa-claro);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.receita-corpo {
+    padding: 40px 100px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.receita-user-info-bloco {
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+
+.user-profile-card {
+    background-color: var(--cor-rosa-claro);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    margin: 5px auto;
+    animation: text-fade-in 2s ease-in-out infinite alternate;
+}
+
+.user-profile-card .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.user-profile-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profile-card h3 {
+    margin: 0;
+    color: var(--cor-marrom-escuro);
+}
+
+.amor{
+    font-size: 0.9em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.user-bio {
+    font-size: 0.9em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.receita-descricao {
+    margin: 40px 0 20px 0;
+}
+
+.prato-origem {
+    font-size: 1.1em;
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+.receita-quote {
+    margin: 20px 0;
+    text-align: center;
+}
+
+blockquote {
+    font-style: italic;
+    color: var(--cor-texto-escuro);
+    border-left: 4px solid var(--cor-rosa-principal);
+    padding-left: 20px;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+blockquote p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+blockquote footer {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--cor-rosa-principal);
+    text-align: right;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--cor-rosa-claro);
+    margin: 40px auto;
+    width: 80%;
+}
+
+.receita-secao {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.receita-secao h3 {
+    font-size: 2em;
+    color: var(--cor-rosa-principal);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tabela-ingredientes {
+    width: 100%;
+    border-collapse: collapse; /* Mantenha o collapse para bordas mais limpas */
+    margin-bottom: 20px;
+}
+
+/* Estilo para as células da tabela (as linhas) */
+.tabela-ingredientes td {
+    border-bottom: 1px solid var(--cor-rosa-claro);
+    padding: 12px 0; /* Aumenta o espaçamento vertical e remove o lateral */
+    vertical-align: top; /* Alinha o texto no topo para evitar quebra de linha */
+    font-weight: normal; /* Garante que o texto não seja negrito por padrão */
+}
+
+/* Alinha o texto da primeira coluna (nome do ingrediente) */
+.tabela-ingredientes td:first-child {
+    text-align: left;
+    font-weight: bold; /* Deixa o nome do ingrediente em negrito */
+    color: var(--cor-marrom-escuro);
+}
+
+/* Alinha o texto da segunda coluna (quantidade) */
+.tabela-ingredientes td:last-child {
+    text-align: right;
+    color: var(--cor-texto-escuro);
+}
+
+/* Remove a borda da última linha para um visual mais limpo */
+.tabela-ingredientes tr:last-child td {
+    border-bottom: none;
+}
+
+.lista-preparo li {
+    font-size: 1.1em;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.receita-foto-final {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 70%;
+}
+
+.receita-foto-final img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-share-final {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.social-share-final p {
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 10px;
+}
+
+.social-share-final .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-share-final .social-link {
+    font-size: 1.5em;
+    color: var(--cor-rosa-principal);
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.social-share-final .social-link:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--cor-rosa-principal), 0 0 5px var(--cor-rosa-claro);
+}
