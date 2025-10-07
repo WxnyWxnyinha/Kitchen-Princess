@@ -12,6 +12,7 @@ Aqui você encontra receitas deliciosas, dicas culinárias e um universo de sabo
 ## Sobre o Projeto
 O **Kitchen Princess** é um site feito para apaixonados por culinária, trazendo receitas variadas, desde sobremesas irresistíveis até pratos principais incríveis. O objetivo é inspirar, ensinar e compartilhar o prazer de cozinhar de forma simples e divertida! 🍳✨
 
+
 ## ✨ Funcionalidades
 - **Página Inicial:** Apresentação do site e destaques de receitas.
 - **Receitas:** Diversas receitas detalhadas para todos os gostos.
