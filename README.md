@@ -10,9 +10,6 @@ Aqui você encontra receitas deliciosas, dicas culinárias e um universo de sabo
 
 
 ## Sobre o Projeto
-<div align="center">
-	<img src="img/img6.png" alt="Foto ilustrativa" width="220"/>
-</div>
 
 O **Kitchen Princess** é um site feito para apaixonados por culinária, trazendo receitas variadas, desde sobremesas irresistíveis até pratos principais incríveis. O objetivo é inspirar, ensinar e compartilhar o prazer de cozinhar de forma simples e divertida! 🍳✨
 
@@ -54,6 +51,8 @@ Kitchen-Princess/
 ## 🌐 Como Visualizar
 
 Você pode acessar o site de duas formas:
+
+- **Pelo GitHub Pages:** [Clique aqui e veja o projeto online! 🍰✨](https://wxnywxnyinha.github.io/Kitchen-Princess/)
 
 - **Clonando o repositório:**
 
