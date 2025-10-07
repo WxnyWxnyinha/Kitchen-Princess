@@ -1,4 +1,7 @@
-![Logo Kitchen Princess](img/img1.png)
+
+<div align="center">
+	<img src="img/img1.png" alt="Logo Kitchen Princess" width="180"/>
+</div>
 
 # Kitchen Princess 🍰 - Receitas e Sabores
 
@@ -7,7 +10,9 @@ Aqui você encontra receitas deliciosas, dicas culinárias e um universo de sabo
 
 
 ## Sobre o Projeto
-![Foto ilustrativa](img/img2.png)
+<div align="center">
+	<img src="img/img6.png" alt="Foto ilustrativa" width="220"/>
+</div>
 
 O **Kitchen Princess** é um site feito para apaixonados por culinária, trazendo receitas variadas, desde sobremesas irresistíveis até pratos principais incríveis. O objetivo é inspirar, ensinar e compartilhar o prazer de cozinhar de forma simples e divertida! 🍳✨
 
